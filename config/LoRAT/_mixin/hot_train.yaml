@@ -1,0 +1,25 @@
+# config/LoRAT/_mixin/hot_train.yaml
+
+# 1) train on HOT_Train
+- path: "run.data.train.source.parameters.datasets"
+  value:
+    - name: "HOT_Train"
+      type: "SOT"
+
+# 2) validate on HOT_Train (or HOT_Test, if you prefer)
+- path: "run.data.val.source.parameters.datasets"
+  value:
+    - name: "HOT_Train"
+      type: "SOT"
+
+# 3) test on HOT_Test
+- path: "run.data.test.source.parameters.datasets"
+  value:
+    - name: "HOT_Test"
+      type: "SOT"
+
+# keep your sampler override
+- path: "run.data.train.sampler"
+  value:
+    type: "random"
+    samples_per_epoch: 131072

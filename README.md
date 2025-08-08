@@ -277,3 +277,7 @@ Load the last checkpoint by specifying the `--resume` argument and the `--wegiht
   booktitle={ECCV},
   year={2024}
 }
+
+
+./run.sh LoRAT dinov2 -mixin hot_test --mixin evaluation --weight_path /home/thomas/PycharmProjects/HypObjTra/LoRAT_HyObTr/weights/base.bin --output_dir  /home/thomas/PycharmProjects/HypObjTra/LoRAT_HyObTr/out_eval
+ 

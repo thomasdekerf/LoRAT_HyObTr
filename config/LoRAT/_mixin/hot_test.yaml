@@ -1,0 +1,5 @@
+# config/LoRAT/_mixin/hot_test.yaml
+- path: "run.data.eval.source.parameters.datasets"
+  value:
+    - name: "HOT_Test"
+      type: "SOT"

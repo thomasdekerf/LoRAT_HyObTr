@@ -13,7 +13,8 @@ LaSOT_PATH: ''
 LaSOT_Extension_PATH: ''
 
 GOT10k_PATH: ''
-
+HOT_Train_PATH: '/home/thomas/Desktop/HOT/train'
+HOT_Test_PATH:  '/home/thomas/Desktop/HOT/test'
 TrackingNet_PATH: ''
 
 UAV123_PATH: ''
@@ -26,7 +27,6 @@ COCO_2017_PATH: ''
 
 OTB_PATH: ''
 NFS_PATH: ''
-HOT_PATH: '/home/thomas/Desktop/HOT'
 VastTrack_TRAIN_PATH: ''
 VastTrack_TEST_PATH: ''
 
