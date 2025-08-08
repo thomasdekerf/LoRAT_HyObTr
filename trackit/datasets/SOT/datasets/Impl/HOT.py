@@ -16,7 +16,6 @@ def construct_HOT(constructor: SingleObjectTrackingDatasetConstructor, seed) -> 
     file with annotations encoded as ``cx cy w h`` using whitespace
     separators (tabs or spaces). The test split may omit this file.
     """
-    constructor.set_bounding_box_format('XYWH')
 
     root_path = seed.root_path
     split_path = os.path.join(root_path, seed.split)
