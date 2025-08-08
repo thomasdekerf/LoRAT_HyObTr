@@ -38,8 +38,13 @@ class DummyTracker:
     def initialize(self, image: np.ndarray, bbox: np.ndarray) -> None:
         self._bbox = bbox
 
+
     def track(self, image: np.ndarray) -> np.ndarray:
-        return self._bbox
+        # Add small random noise to bbox [x, y, w, h]
+        jitter = np.random.randint(-3, 4, size=4)  # values from -3 to 3
+        pred = np.clip(self._bbox + jitter, a_min=0, a_max=None).astype(np.float32)
+        return pred
+        # return self._bbox
 
 
 def evaluate_split(data_root: str, split: str) -> None:
@@ -67,9 +72,17 @@ def evaluate_split(data_root: str, split: str) -> None:
             preds.append(pred)
         preds = np.array(preds, dtype=np.float64)
         gt = np.array(gt, dtype=np.float64)
+
+        def xywh_to_xyxy(bbox: np.ndarray) -> np.ndarray:
+            x1 = bbox[..., 0]
+            y1 = bbox[..., 1]
+            x2 = x1 + bbox[..., 2]
+            y2 = y1 + bbox[..., 3]
+            return np.stack((x1, y1, x2, y2), axis=-1)
+
         metrics, _ = compute_one_pass_evaluation_metrics(
-            preds,
-            gt,
+            xywh_to_xyxy(preds),
+            xywh_to_xyxy(gt),
             None,
             np.array(times, dtype=np.float64),
         )

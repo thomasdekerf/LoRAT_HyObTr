@@ -26,7 +26,7 @@ COCO_2017_PATH: ''
 
 OTB_PATH: ''
 NFS_PATH: ''
-
+HOT_PATH: '/home/thomas/Desktop/HOT'
 VastTrack_TRAIN_PATH: ''
 VastTrack_TEST_PATH: ''
 
